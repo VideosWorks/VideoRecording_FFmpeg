@@ -1,2 +1,2 @@
 # myVideoRecordingDemo
-JsonYang  and  HupingZhao
+JsonYang  and  HongpingZhao
