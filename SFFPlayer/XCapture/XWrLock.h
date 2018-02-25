@@ -2,6 +2,7 @@
 
 #include<stdio.h>
 #include<process.h>
+#include <WinSock2.h>
 #include<windows.h>
 
 

@@ -2,8 +2,10 @@
 #ifndef ___MULTMEDIA_CAPTURE_HH
 #define ___MULTMEDIA_CAPTURE_HH
 #include "IMultMediaCapture.h"
-
+#include "XWrLock.h"
 class SDLWindowThread;
+class VideoCaptureThread;
+class XThreadMgr;
 
 class MultMediaCapture  : public IMultMediaCapture
 {
@@ -13,7 +15,7 @@ public:
 	virtual ~MultMediaCapture() ;
 
 	//启动设备(输入设备名称, 数据截获大小,截获频率)
-	virtual int Start(const char* device, const char* rect="1080X720", int sampRate = 60);
+	virtual int Start(const char* device,int width, int height, int sampRate = 60);
 
 	//停止设备
 	virtual int Stop();
@@ -24,7 +26,13 @@ public:
 	//停止存储
 	virtual int StopSave();
 
+	//渲染线程的操作
+	void SendRender( char* data, int inersize);
+
 protected:
 	SDLWindowThread*	m_SDLThread;
+	XWRLock				m_WRLock;
+	VideoCaptureThread*	m_CaptureThread;
+	XThreadMgr*			m_ThreadMgr;
 };
 #endif

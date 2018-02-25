@@ -16,7 +16,7 @@ public:
 	int send_long_buff(const string & id, int _msg_id, const void * _buff, long _length);
 	int regist_timer(const string & id, int _timer_id, int _time_out);
 	int unregist_timer(const string & id, int _timer_id);
-	int attach_obj(XThreadBase * _obj, thread_type _type);
+	int attach_obj(XThreadBase * _obj, thread_type _type = e_msg);
 	int detch_obj(const string & id);
 private:
 	void*       _ctx;//上下文对象

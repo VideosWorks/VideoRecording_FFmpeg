@@ -14,7 +14,7 @@ public:
 	static IMultMediaCapture* CreateCapture(void* WID);
 
 	//启动设备(输入设备名称, 数据截获大小)
-	virtual int Start(const char* device, const char* rect="1080X720", int sampRate = 60) = 0;
+	virtual int Start(const char* device, int width, int height, int sampRate = 60) = 0;
 
 	//停止设备
 	virtual int Stop() = 0;
